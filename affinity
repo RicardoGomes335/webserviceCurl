@@ -10,8 +10,8 @@
 		<requisicao>
 			<login>$usuario</login>
 			<senha>$senha</senha>
-			<destino>$id_destino</destino>
-			<categoria>$id_motivo</categoria>
+			<destino>1</destino>
+			<categoria>17</categoria>
 			<dataInicio>2021/10/01</dataInicio>
 			<dataFim>2021/10/15</dataFim>
 			<nPax>1</nPax>
