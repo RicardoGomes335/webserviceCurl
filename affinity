@@ -12,12 +12,12 @@
 			<senha>$senha</senha>
 			<destino>$id_destino</destino>
 			<categoria>$id_motivo</categoria>
-			<dataInicio>$data_inicio</dataInicio>
-			<dataFim>$data_fim</dataFim>
-			<nPax>$num_passageiros</nPax>
-			<familiar>$num_passageiros_ac</familiar>
-			<cancelId>$cod_cancelamento</cancelId>
-			<covidId>$cod_covid</covidId>
+			<dataInicio>2021/10/01</dataInicio>
+			<dataFim>2021/10/15</dataFim>
+			<nPax>1</nPax>
+			<familiar>0</familiar>
+			<cancelId>2220</cancelId>
+			<covidId>11923</covidId>
 		</requisicao>";
 
 		$parametrosURL = http_build_query($parametrosURL);
