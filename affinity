@@ -1,0 +1,69 @@
+<?php
+
+	$usuario 				= "xml28";
+	$senha					= "15028";
+	$id_motivo				= $_POST['id_motivo'];
+	$id_destino				= $_POST['id_destino'];
+	$data_inicio			= $_POST['data_inicio'];
+	$data_fim				= $_POST['data_fim'];
+	$num_passageiros 		= $_POST['num_passageiro'];
+	$num_passageiros_ac 	= $_POST['num_passageiro_ac'];
+	$cod_cancelamento		= $_POST['cod_cancelamento'];
+	$cod_covid	 			= $_POST['cod_covid'];
+	//echo ("USUARIO: " . $usuario);
+	if(!isset($cod_cancelamento)){
+		echo $cod_cancelamento = "";
+	}
+	
+	if(!isset($cod_covid)){
+		echo $cod_covid = "";
+	}
+
+
+	$dt_ini = date('Y/m/d', strtotime($data_inicio ));
+	
+	$dt_fim = date('Y/m/d', strtotime($data_fim ));
+
+		// ################################################################################
+		// Sua mensagem: METODO getCotacaoDestino/? OK ##################################
+		$parametrosURL['mensagem'] = "<?xml version='1.0' encoding='UTF-8' ?> 
+		<requisicao>
+			<login>$usuario</login>
+			<senha>$senha</senha>
+			<destino>$id_destino</destino>
+			<categoria>$id_motivo</categoria>
+			<dataInicio>$data_inicio</dataInicio>
+			<dataFim>$data_fim</dataFim>
+			<nPax>$num_passageiros</nPax>
+			<familiar>$num_passageiros_ac</familiar>
+			<cancelId>$cod_cancelamento</cancelId>
+			<covidId>$cod_covid</covidId>
+		</requisicao>";
+
+		$parametrosURL = http_build_query($parametrosURL);
+
+		$url = 'https://www.affinityassistencia.com.br/ws/getCotacaoDestino/?'.$parametrosURL;
+		// ################################################################################
+		// ################################################################################
+		
+		$headers = array("Content-Type: application/json; charset=utf-8");
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
+		$data = curl_exec($ch);
+		curl_close($ch);
+		
+
+
+		print_r('<pre>');
+		$array  = array($data);
+		$teste = ($array[0]);
+		$pieces = explode(" ", $teste);
+	
+		print_r('</pre>');
+		$result = count($array);
+
+
+?>
