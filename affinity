@@ -2,27 +2,7 @@
 
 	$usuario 				= "xml28";
 	$senha					= "15028";
-	$id_motivo				= $_POST['id_motivo'];
-	$id_destino				= $_POST['id_destino'];
-	$data_inicio			= $_POST['data_inicio'];
-	$data_fim				= $_POST['data_fim'];
-	$num_passageiros 		= $_POST['num_passageiro'];
-	$num_passageiros_ac 	= $_POST['num_passageiro_ac'];
-	$cod_cancelamento		= $_POST['cod_cancelamento'];
-	$cod_covid	 			= $_POST['cod_covid'];
-	//echo ("USUARIO: " . $usuario);
-	if(!isset($cod_cancelamento)){
-		echo $cod_cancelamento = "";
-	}
 	
-	if(!isset($cod_covid)){
-		echo $cod_covid = "";
-	}
-
-
-	$dt_ini = date('Y/m/d', strtotime($data_inicio ));
-	
-	$dt_fim = date('Y/m/d', strtotime($data_fim ));
 
 		// ################################################################################
 		// Sua mensagem: METODO getCotacaoDestino/? OK ##################################
